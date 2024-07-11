@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./ui/nav-bar";
 import Profile from "./ui/profile";
+import Footer from "./ui/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +22,12 @@ export default function RootLayout({
 			<body className={inter.className}>
 				<div className="w-screen h-screen flex">
 					<NavBar />
-					<div className="grow p-5">
-						<Profile />
-						{children}
+					<div className="h-full grow p-5 overflow-y-auto">
+						<div className="min-h-full max-w-[975px] w-full mx-auto flex flex-col">
+							<Profile />
+							<section className="grow h-full">{children}</section>
+							<Footer />
+						</div>
 					</div>
 				</div>
 			</body>

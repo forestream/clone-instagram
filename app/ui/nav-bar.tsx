@@ -3,7 +3,7 @@ import NavBarButton from "./nav-bar-button";
 
 export default function NavBar() {
 	return (
-		<div className="w-20 z-10 bg-white top-0 h-screen w-20 flex flex-col border-r-2 justify-start items-center py-8">
+		<div className="w-20 z-10 bg-white top-0 h-screen flex flex-col border-r-2 justify-start items-center py-8">
 			<div className="h-20">
 				<NavBarButton>
 					<Image src="images/instagram.svg" alt="instagram icon" fill />

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ProfileOptions from "./profile-buttons";
 import ProfileButtons from "./profile-buttons";
 import ProfileTexts from "./profile-texts";
 import ProfileHighlights from "./profile-highlights";
@@ -7,7 +6,7 @@ import ProfileHighlights from "./profile-highlights";
 export default function Profile() {
 	return (
 		<header>
-			<div className="flex flex-col gap-8 max-w-[975px] mx-auto my-0">
+			<div className="flex flex-col gap-8">
 				<div className="h-52 w-full flex gap-7">
 					<div className="w-72 flex justify-center items-center">
 						<div className="h-[150px] w-[150px] rounded-full bg-neutral-200 cursor-pointer"></div>
