@@ -13,3 +13,5 @@ export const FOOTER_LINKS = [
 	"연락처 업로드 & 비사용자",
 	"Meta Verified",
 ];
+
+export const POST_LIMIT = 9;

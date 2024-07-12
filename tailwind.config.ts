@@ -8,10 +8,15 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			colors: {
+				"transparent-black": "rgba(0,0,0,0.3)",
+			},
+			backgroundPosition: {
+				likes: "-340px -333px",
+				comments: "-382px -333px",
+			},
 			backgroundImage: {
-				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-				"gradient-conic":
-					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+				"sprite-sheet": "url('/images/sprite_core.png')",
 			},
 			padding: {
 				"1.5": "0.375rem",
