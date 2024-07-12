@@ -2,6 +2,7 @@ import Image from "next/image";
 import ProfileButtons from "./profile-buttons";
 import ProfileTexts from "./profile-texts";
 import ProfileHighlights from "./profile-highlights";
+import ProfilePageTab from "./profile-page-tab";
 
 export default function Profile() {
 	return (
@@ -45,35 +46,7 @@ export default function Profile() {
 					</div>
 				</div>
 				<ProfileHighlights />
-				<div className="w-full h-[3.25rem] border-t-2 flex justify-center text-xs font-semibold">
-					<button className="flex items-center gap-[6px] mr-[3.75rem]">
-						<Image
-							src="images/profile-posts.svg"
-							alt="게시물"
-							width={12}
-							height={12}
-						/>
-						게시물
-					</button>
-					<button className="flex items-center gap-[6px] mr-[3.75rem]">
-						<Image
-							src="images/profile-saved.svg"
-							alt="저장됨"
-							width={12}
-							height={12}
-						/>
-						저장됨
-					</button>
-					<button className="flex items-center gap-[6px] mr-[3.75rem]">
-						<Image
-							src="images/profile-tagged.svg"
-							alt="태그됨"
-							width={12}
-							height={12}
-						/>
-						태그됨
-					</button>
-				</div>
+				<ProfilePageTab />
 			</div>
 		</header>
 	);
