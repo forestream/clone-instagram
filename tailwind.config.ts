@@ -14,6 +14,8 @@ const config: Config = {
 			backgroundPosition: {
 				likes: "-340px -333px",
 				comments: "-382px -333px",
+				saved: "-192px -269px",
+				tagged: "-256px -269px",
 			},
 			backgroundImage: {
 				"sprite-sheet": "url('/images/sprite_core.png')",
