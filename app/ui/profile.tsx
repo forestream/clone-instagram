@@ -3,6 +3,7 @@ import ProfileButtons from "./profile-buttons";
 import ProfileTexts from "./profile-texts";
 import ProfileHighlights from "./profile-highlights";
 import ProfilePageTab from "./profile-page-tab";
+import ProfileImage from "./profile-image";
 
 export default function Profile() {
 	return (
@@ -10,7 +11,7 @@ export default function Profile() {
 			<div className="flex flex-col gap-8">
 				<div className="h-52 w-full flex gap-7">
 					<div className="w-72 flex justify-center items-center">
-						<div className="h-[150px] w-[150px] rounded-full bg-neutral-200 cursor-pointer"></div>
+						<ProfileImage />
 					</div>
 					<div className="w-full flex flex-col gap-4">
 						<div className="flex gap-2 justify-start items-center grow">

@@ -30,6 +30,7 @@ export default function RootLayout({
 						</div>
 					</div>
 				</div>
+				<div id="modal" />
 			</body>
 		</html>
 	);

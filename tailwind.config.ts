@@ -10,6 +10,7 @@ const config: Config = {
 		extend: {
 			colors: {
 				"transparent-black": "rgba(0,0,0,0.3)",
+				"modal-black": "rgba(0,0,0,0.6)",
 			},
 			backgroundPosition: {
 				likes: "-340px -333px",

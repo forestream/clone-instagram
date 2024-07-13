@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 
 export default function ProfilePageTab() {
 	const pathname = usePathname();
-	console.log(pathname);
 
 	return (
 		<div className="w-full h-[3.25rem] border-t-2 flex justify-center text-xs font-semibold">
