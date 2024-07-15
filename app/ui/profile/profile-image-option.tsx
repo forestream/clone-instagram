@@ -1,5 +1,5 @@
 import { ChangeEventHandler, MouseEventHandler, useRef } from "react";
-import withModal from "./modal/withModal";
+import withModal from "../modal/withModal";
 
 const ProfileImageOption = withModal(({ closeModal, onImageChange }) => {
 	const formRef = useRef<HTMLFormElement>(null);
