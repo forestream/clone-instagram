@@ -1,4 +1,4 @@
-import ProfileEmptyPosts from "../ui/profile-empty-posts";
+import ProfileEmptyPosts from "../ui/profile/profile-empty-posts";
 
 export default function Page() {
 	return (
