@@ -33,12 +33,9 @@ export default function Home() {
 		[offset]
 	);
 
-	const observer = useMemo(
-		() => new IntersectionObserver(ioFunction, { threshold: 1 }),
-		[ioFunction]
-	);
-
 	useEffect(() => {
+		const observer = new IntersectionObserver(ioFunction, { threshold: 1 });
+
 		if (!ref.current) return;
 		const sentinel = ref.current;
 		observer.observe(sentinel);
@@ -46,7 +43,7 @@ export default function Home() {
 		return () => {
 			observer.unobserve(sentinel);
 		};
-	}, [observer]);
+	}, [ioFunction]);
 
 	const randomImageId = useMemo(() => Math.trunc(Math.random() * 500), []);
 
@@ -54,7 +51,7 @@ export default function Home() {
 		<div className="flex flex-wrap">
 			{posts.map((post, i) => (
 				<Post
-					key={post.comments.slice(0, 10)}
+					key={i + post.comments.slice(0, 10)}
 					post={post}
 					randomImageId={randomImageId + i}
 				/>
