@@ -28,21 +28,24 @@ const ProfileImageOption = withModal(({ closeModal, onImageChange }) => {
 	};
 
 	return (
-		<div className="max-w-[400px] w-full bg-white rounded-xl flex flex-col">
+		<div className="max-w-[400px] w-full bg-white rounded-xl flex flex-col animate-open-modal">
 			<p className="text-center py-6 text-xl">프로필 사진 바꾸기</p>
 			<button
-				className="py-4 border-t-2 text-sm w-full text-sky-500 font-bold"
+				className="active:bg-neutral-200 py-4 border-t-2 text-sm w-full text-sky-500 font-bold"
 				onClick={handleClickUpload}
 			>
 				사진 업로드
 			</button>
 			<button
-				className="py-4 border-t-2 text-sm w-full text-red-500 font-bold"
+				className="active:bg-neutral-200 py-4 border-t-2 text-sm w-full text-red-500 font-bold"
 				onClick={handleDelete}
 			>
 				현재 사진 삭제
 			</button>
-			<button onClick={handleCancel} className="py-4 border-t-2 text-sm w-full">
+			<button
+				onClick={handleCancel}
+				className="active:bg-neutral-200 py-4 border-t-2 text-sm w-full"
+			>
 				취소
 			</button>
 			<form ref={formRef} className="opacity-0 w-0 h-0">

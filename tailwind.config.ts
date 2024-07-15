@@ -8,6 +8,15 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			animation: {
+				"open-modal": "modal-shrink 100ms ease-out 1",
+			},
+			keyframes: {
+				"modal-shrink": {
+					"0%": { transform: "scale(1.2)" },
+					"100%": { transform: "scale(1)" },
+				},
+			},
 			colors: {
 				"transparent-black": "rgba(0,0,0,0.3)",
 				"modal-black": "rgba(0,0,0,0.6)",
