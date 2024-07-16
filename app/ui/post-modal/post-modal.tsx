@@ -42,7 +42,7 @@ const PostModal = withModal<PostModalProps>(({ src, post, closeModal }) => {
 
 	return (
 		<div
-			className="max-h-post-modal max-w-post-modal w-full h-fit flex justify-center"
+			className="max-h-post-modal max-w-post-modal w-full h-fit flex justify-center animate-open-modal"
 			onClick={handleClickOutside}
 		>
 			<div
