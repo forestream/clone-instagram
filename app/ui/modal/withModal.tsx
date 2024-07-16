@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { createPortal } from "react-dom";
 
-interface ModalProps {
+export interface ModalProps {
 	closeModal: () => void;
 }
 

@@ -1,19 +1,26 @@
 import Image from "next/image";
-import withModal from "../modal/withModal";
+import withModal, { ModalProps } from "../modal/withModal";
 import PostModalProfile from "./post-modal-profile";
 import PostModalInput from "./post-modal-input";
 import PostModalContent from "./post-modal-content";
 import { Post } from "@/app/page.type";
 import PostModalComments, { Comment } from "./post-modal-comments";
-import { FormEvent, FormEventHandler, useState } from "react";
+import {
+	FormEvent,
+	FormEventHandler,
+	MouseEventHandler,
+	useRef,
+	useState,
+} from "react";
 
-interface PostModalProps {
+interface PostModalProps extends ModalProps {
 	src: string;
 	post: Post;
 }
 
-const PostModal = withModal<PostModalProps>(({ src, post }) => {
+const PostModal = withModal<PostModalProps>(({ src, post, closeModal }) => {
 	const [comments, setComments] = useState<Comment[]>([]);
+	const ref = useRef<HTMLDivElement>(null);
 
 	const handleSubmitComment: FormEventHandler = (
 		event: FormEvent<HTMLFormElement>
@@ -28,9 +35,20 @@ const PostModal = withModal<PostModalProps>(({ src, post }) => {
 		]);
 	};
 
+	const handleClickOutside: MouseEventHandler = (e) => {
+		if (ref.current && !ref.current.contains(e.target as HTMLElement))
+			closeModal();
+	};
+
 	return (
-		<div className="max-h-post-modal max-w-post-modal w-full h-fit flex justify-center">
-			<div className="bg-white max-w-post-modal-inner w-full min-h-[450px] flex rounded overflow-hidden">
+		<div
+			className="max-h-post-modal max-w-post-modal w-full h-fit flex justify-center"
+			onClick={handleClickOutside}
+		>
+			<div
+				className="bg-white max-w-post-modal-inner w-full min-h-[450px] flex rounded overflow-hidden"
+				ref={ref}
+			>
 				<div className="bg-black w-full h-full aspect-square relative min-w-[100px]">
 					<Image
 						src={src}
