@@ -36,7 +36,13 @@ export default function Post({ post, randomImageId }: PostProps) {
 					</div>
 				</div>
 			</div>
-			{modal && <PostModal closeModal={handleCloseModal} src={randomImage} />}
+			{modal && (
+				<PostModal
+					closeModal={handleCloseModal}
+					src={randomImage}
+					post={post}
+				/>
+			)}
 		</>
 	);
 }

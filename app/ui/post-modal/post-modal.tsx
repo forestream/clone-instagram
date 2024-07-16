@@ -1,14 +1,33 @@
 import Image from "next/image";
 import withModal from "../modal/withModal";
 import PostModalProfile from "./post-modal-profile";
-import PostModalComment from "./post-modal-comment";
 import PostModalInput from "./post-modal-input";
+import PostModalContent from "./post-modal-content";
+import { Post } from "@/app/page.type";
+import PostModalComments, { Comment } from "./post-modal-comments";
+import { FormEvent, FormEventHandler, useState } from "react";
 
 interface PostModalProps {
 	src: string;
+	post: Post;
 }
 
-const PostModal = withModal<PostModalProps>(({ src }) => {
+const PostModal = withModal<PostModalProps>(({ src, post }) => {
+	const [comments, setComments] = useState<Comment[]>([]);
+
+	const handleSubmitComment: FormEventHandler = (
+		event: FormEvent<HTMLFormElement>
+	) => {
+		event.preventDefault();
+		const data = new FormData(event.target as HTMLFormElement);
+		const comment = data.get("comment") as string;
+
+		setComments((prev) => [
+			...prev,
+			{ profile: src, comment, account: "account" },
+		]);
+	};
+
 	return (
 		<div className="max-h-post-modal max-w-post-modal w-full h-fit flex justify-center">
 			<div className="bg-white max-w-post-modal-inner w-full min-h-[450px] flex rounded overflow-hidden">
@@ -33,14 +52,12 @@ const PostModal = withModal<PostModalProps>(({ src }) => {
 						style={{ scrollbarWidth: "none" }}
 					>
 						<div className="flex flex-col absolute">
-							<PostModalComment src={src} account="account" />
-							<PostModalComment src={src} account="account" />
-							<PostModalComment src={src} account="account" />
-							<PostModalComment src={src} account="account" />
-							<PostModalComment src={src} account="account" />
-							<PostModalComment src={src} account="account" />
-							<PostModalComment src={src} account="account" />
-							<PostModalComment src={src} account="account" />
+							<PostModalContent
+								src={src}
+								account="account"
+								content={post.comments}
+							/>
+							<PostModalComments comments={comments} />
 						</div>
 					</div>
 					<div className="h-[60px] py-3 px-4 flex justify-between border-b-2">
@@ -94,7 +111,7 @@ const PostModal = withModal<PostModalProps>(({ src }) => {
 						</div>
 					</div>
 
-					<PostModalInput />
+					<PostModalInput onSubmit={handleSubmitComment} />
 				</div>
 			</div>
 		</div>

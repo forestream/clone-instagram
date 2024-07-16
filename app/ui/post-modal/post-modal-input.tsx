@@ -1,7 +1,16 @@
 import Image from "next/image";
-import { ChangeEvent, ChangeEventHandler, useState } from "react";
+import {
+	ChangeEvent,
+	ChangeEventHandler,
+	FormEvent,
+	FormEventHandler,
+	useState,
+} from "react";
 
-export default function PostModalInput() {
+interface PostModalInputProps {
+	onSubmit: (event: FormEvent) => void;
+}
+export default function PostModalInput({ onSubmit }: PostModalInputProps) {
 	const [value, setValue] = useState("");
 
 	const handleChange: ChangeEventHandler = (
@@ -10,8 +19,16 @@ export default function PostModalInput() {
 		setValue(event.target.value);
 	};
 
+	const handleSubmit: FormEventHandler = (event) => {
+		onSubmit(event);
+		setValue("");
+	};
+
 	return (
-		<form className="h-[60px] p-[14px] flex gap-2 justify-between">
+		<form
+			className="h-[60px] p-[14px] flex gap-2 justify-between"
+			onSubmit={handleSubmit}
+		>
 			<div className="flex gap-4 grow">
 				<Image
 					className="cursor-pointer"
@@ -21,6 +38,7 @@ export default function PostModalInput() {
 					height={24}
 				/>
 				<input
+					name="comment"
 					type="text"
 					value={value}
 					placeholder="댓글 달기..."
@@ -29,7 +47,6 @@ export default function PostModalInput() {
 				/>
 			</div>
 			<button
-				type="button"
 				className="text-sky-500 font-semibold disabled:opacity-40"
 				disabled={!value.length}
 			>
