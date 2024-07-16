@@ -8,12 +8,24 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			animation: {
+				"open-modal": "modal-shrink 100ms ease-out 1",
+			},
+			keyframes: {
+				"modal-shrink": {
+					"0%": { transform: "scale(1.2)" },
+					"100%": { transform: "scale(1)" },
+				},
+			},
 			colors: {
 				"transparent-black": "rgba(0,0,0,0.3)",
+				"modal-black": "rgba(0,0,0,0.6)",
 			},
 			backgroundPosition: {
 				likes: "-340px -333px",
 				comments: "-382px -333px",
+				saved: "-192px -269px",
+				tagged: "-256px -269px",
 			},
 			backgroundImage: {
 				"sprite-sheet": "url('/images/sprite_core.png')",
@@ -26,6 +38,16 @@ const config: Config = {
 				"22": "5.5rem",
 				"30": "7.5rem",
 				"50": "12.5rem",
+			},
+			maxWidth: {
+				"post-modal": "calc(100% - 64px - 64px)",
+				"post-modal-inner": "calc(100vh - 20px - 20px + 500px)",
+			},
+			maxHeight: {
+				"post-modal": "calc(100% - 20px - 20px)",
+			},
+			minHeight: {
+				"post-modal": "450px",
 			},
 		},
 	},

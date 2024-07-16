@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./ui/nav-bar";
-import Profile from "./ui/profile";
+import Profile from "./ui/profile/profile";
 import Footer from "./ui/footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -30,6 +30,7 @@ export default function RootLayout({
 						</div>
 					</div>
 				</div>
+				<div id="modal" />
 			</body>
 		</html>
 	);
