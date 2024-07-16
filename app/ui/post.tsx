@@ -1,6 +1,5 @@
 import Image from "next/image";
 import type { Post } from "../page.type";
-import { useRouter } from "next/navigation";
 import useModalOpen from "@/lib/hooks/use-modal-open";
 import PostModal from "./post-modal";
 
