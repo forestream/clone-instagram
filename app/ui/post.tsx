@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Post } from "../page.type";
 import useModalOpen from "@/lib/hooks/use-modal-open";
-import PostModal from "./post-modal";
+import PostModal from "./post-modal/post-modal";
 
 interface PostProps {
 	post: Post;

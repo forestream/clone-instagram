@@ -1,5 +1,5 @@
 import Image from "next/image";
-import withModal from "./modal/withModal";
+import withModal from "../modal/withModal";
 import PostModalProfile from "./post-modal-profile";
 import PostModalComment from "./post-modal-comment";
 import PostModalInput from "./post-modal-input";
