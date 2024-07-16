@@ -10,13 +10,12 @@ import { createPortal } from "react-dom";
 
 interface ModalProps {
 	closeModal: () => void;
-	onImageChange: (image: string) => void;
 }
 
-export default function withModal(
-	Component: ComponentType<PropsWithChildren<ModalProps>>
+export default function withModal<T>(
+	Component: ComponentType<PropsWithChildren<ModalProps & T>>
 ) {
-	return function Modal(props: PropsWithChildren<ModalProps>) {
+	return function Modal(props: PropsWithChildren<ModalProps & T>) {
 		const ref = useRef<HTMLDivElement>(null);
 
 		const handleClickOutside: MouseEventHandler = (e) => {

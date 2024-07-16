@@ -7,11 +7,11 @@ import Image from "next/image";
 
 export default function ProfileImage() {
 	const [image, setImage] = useState("");
-	const [modalOpen, onModalOpen] = useModalOpen();
+	const [modal, handleModal] = useModalOpen();
 
-	const handleOpenModal = () => onModalOpen(true);
+	const handleOpenModal = () => handleModal(true);
 
-	const handleCloseModal = () => onModalOpen(false);
+	const handleCloseModal = () => handleModal(false);
 
 	const handleImageChange = (image: string) => setImage(image);
 
@@ -23,7 +23,7 @@ export default function ProfileImage() {
 			>
 				{image && <Image src={image} alt="프로필 이미지" fill />}
 			</div>
-			{modalOpen && (
+			{modal && (
 				<ProfileImageOption
 					closeModal={handleCloseModal}
 					onImageChange={handleImageChange}

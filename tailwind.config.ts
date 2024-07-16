@@ -39,6 +39,16 @@ const config: Config = {
 				"30": "7.5rem",
 				"50": "12.5rem",
 			},
+			maxWidth: {
+				"post-modal": "calc(100% - 64px - 64px)",
+				"post-modal-inner": "calc(100vh - 20px - 20px + 500px)",
+			},
+			maxHeight: {
+				"post-modal": "calc(100% - 20px - 20px)",
+			},
+			minHeight: {
+				"post-modal": "450px",
+			},
 		},
 	},
 	plugins: [],
